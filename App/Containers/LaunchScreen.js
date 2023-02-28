@@ -7,7 +7,7 @@ import BinanceRequest from '../Services/BinanceRequest/';
 // Styles
 import styles from './Styles/LaunchScreenStyles';
 
-var Configs = {
+const Configs = {
   endPointUrl: 'https://www.binance.com/api/',
   APIKey: '5o9jeWDzI4WE3kYTYQdzWF4w8fvo0iKza6JN9U8VrFumOb8Cl9uHRH7gl4jrmFiD',
   secretKey: ''
@@ -21,18 +21,11 @@ export default class LaunchScreen extends Component {
   constructor(props) {
     super(props);
     this.state = { homeTiles: [] };
-
-    binanceRequest.allPricesTickers()
   }
 
   componentDidMount(){
-    // this.fetchData.done()    
+    // this.fetchData.done()
   }
-
-  // async fetchData() {
-  //   const aTiles = await binanceRequest.allPricesTickers();
-  //   this.setState({ homeTiles: aTiles });
-  // }
 
   render () {
     return (
@@ -40,9 +33,12 @@ export default class LaunchScreen extends Component {
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <ScrollView style={styles.container}>
           <Text>Cryptofy</Text>
-          {this.state.homeTiles.map(item => {
-              return <CurrencyCard/>
-            })
+          {
+            this.state.homeTiles.map(
+              item => {
+                return <CurrencyCard/>
+              }
+            )
           }
         </ScrollView>
       </View>

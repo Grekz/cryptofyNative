@@ -30,7 +30,7 @@ const Methods = {
             aUsdtCurrencies.push(element);
           }
         });
-        console.warn(aUsdtCurrencies);
+        // console.warn(aUsdtCurrencies);
         return aUsdtCurrencies;
       }
   }
@@ -93,14 +93,15 @@ export default class BinanceRequest {
   * @private
   */
   _methodCall(method, args, fCallback) {
-    console.warn(method);
+    // console.warn(method);
     if (typeof args === 'undefined') {
         args = {};
     }
     return axios(this._constructRequest(args, method))
       .then((responseJson) => {
+          // console.warn(responseJson);
           if(typeof fCallback === 'function') {
-            console.warn(fCallback);
+            // console.warn(fCallback);
             return fCallback(responseJson);
           } else {
             return responseJson.data;
